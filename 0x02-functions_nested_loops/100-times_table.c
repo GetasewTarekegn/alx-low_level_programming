@@ -1,54 +1,47 @@
 #include "main.h"
 
 /**
- *  * print_times_table 
- *   * @n: An input integer value
- *    * Return: Nothing
- *     **/
+ ** print_times_table 
+      **/
 void print_times_table(int n)
 {
-int i, j;
-if (n > 0 && n < 15)
+int row, col;
+int mult = 0;
+if (n <= 15 && n >= 0)
 {
-for (i = 0; i <= n; i++)
+for (row = 0; row <= n; row++)
 {
-_putchar('0');
-for (j = 1; j <= n; j++)
-putformat(i * j);
-_putchar('\n');
+for (col = 0; col <= n; col++)
+{
+mult = (row * col);
+if (mult < 10)
+{
+if (col != 0)
+{
+_putchar(' ');
+_putchar(' ');
+_putchar(' ');
 }
+_putchar(mult + '0');
 }
-}
-
-/**
- *  * putformat - formatted characters to output
- *   * @n: number to format
- *    * Return: nothing
- *    **/
-void putformat(int n)
+else if (mult < 100)
 {
-if (n <= 9)
-{
-_putchar(',');
 _putchar(' ');
 _putchar(' ');
-_putchar(' ');
-_putchar(n + '0');
-}
-else if (n > 9 && n <= 99)
-{
-_putchar(',');
-_putchar(' ');
-_putchar(' ');
-_putchar(n / 10 + '0');
-_putchar(n % 10 + '0');
+_putchar((mult / 10) + '0');
+_putchar((mult % 10) + '0');
 }
 else
 {
-_putchar(',');
 _putchar(' ');
-_putchar(n / 100 + '0');
-putchar(n / 10 % 10 + '0');
-_putchar(n % 10 + '0');
+_putchar((mult / 100) + '0');
+_putchar(((mult % 100) / 10) + '0');
+_putchar((mult % 10) + '0');
+}
+if (col != n)
+_putchar(',');
+}
+_putchar('\n');
+}
 }
 }
