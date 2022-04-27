@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "list.h"
 
 /**
  * print_listint_safe - prints a linked list, safely
